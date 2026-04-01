@@ -1,655 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Green IT Recovery Inc. | IT Asset Recovery & Electronics Recycling</title>
-  <meta name="description" content="Green IT Recovery Inc. provides electronics pickup, IT asset recovery, secure data destruction, and responsible recycling services for businesses, schools, and organizations across Ontario." />
-  <meta name="theme-color" content="#0f766e" />
-  <style>
-    :root {
-      --primary: #0f766e;
-      --primary-dark: #115e59;
-      --accent: #dcfce7;
-      --text: #0f172a;
-      --muted: #475569;
-      --bg: #f8fafc;
-      --card: #ffffff;
-      --border: #e2e8f0;
-      --dark: #0b1324;
-      --max: 1180px;
-      --shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
-      --radius: 20px;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Green IT Recovery Inc. | Free Electronics Pickup</title>
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: Inter, Arial, Helvetica, sans-serif;
-      color: var(--text);
-      background: var(--bg);
-      line-height: 1.6;
-    }
+<style>
+body{
+font-family:Arial, Helvetica, sans-serif;
+margin:0;
+background:#f8fafc;
+color:#0f172a;
+}
 
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
+.container{
+max-width:1100px;
+margin:auto;
+padding:20px;
+}
 
-    .container {
-      width: min(var(--max), calc(100% - 32px));
-      margin: 0 auto;
-    }
+header{
+background:white;
+border-bottom:1px solid #e2e8f0;
+}
 
-    .topbar {
-      background: #ecfeff;
-      border-bottom: 1px solid var(--border);
-      font-size: 14px;
-      color: var(--muted);
-    }
+.nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
 
-    .topbar .container {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 10px 0;
-      flex-wrap: wrap;
-    }
+.btn{
+background:#0f766e;
+color:white;
+padding:12px 18px;
+border-radius:30px;
+text-decoration:none;
+font-weight:bold;
+}
 
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(255,255,255,0.9);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(226,232,240,0.85);
-    }
+.hero{
+padding:60px 0;
+background:#ecfeff;
+}
 
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      padding: 18px 0;
-    }
+.card{
+background:white;
+padding:25px;
+border-radius:12px;
+border:1px solid #e2e8f0;
+}
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      font-weight: 800;
-      font-size: 20px;
-    }
+.section{
+padding:60px 0;
+}
 
-    .brand-mark {
-      width: 44px;
-      height: 44px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, var(--primary), #22c55e);
-      display: grid;
-      place-items: center;
-      color: white;
-      font-size: 18px;
-      box-shadow: var(--shadow);
-    }
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:25px;
+}
 
-    .nav-links {
-      display: flex;
-      gap: 22px;
-      align-items: center;
-      flex-wrap: wrap;
-      color: var(--muted);
-      font-weight: 600;
-    }
+input, textarea{
+width:100%;
+padding:14px;
+border-radius:10px;
+border:1px solid #e2e8f0;
+font-size:15px;
+}
 
-    .nav-links a:hover { color: var(--primary-dark); }
+button{
+background:#0f766e;
+color:white;
+padding:14px;
+border:none;
+border-radius:30px;
+font-weight:bold;
+cursor:pointer;
+}
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      border-radius: 999px;
-      padding: 14px 22px;
-      font-weight: 700;
-      transition: 0.2s ease;
-      border: 1px solid transparent;
-    }
+footer{
+text-align:center;
+padding:30px;
+color:#64748b;
+}
 
-    .btn-primary {
-      background: var(--primary);
-      color: white;
-      box-shadow: 0 12px 28px rgba(15, 118, 110, 0.25);
-    }
-
-    .btn-primary:hover { background: var(--primary-dark); transform: translateY(-1px); }
-    .btn-secondary {
-      background: white;
-      border-color: var(--border);
-      color: var(--text);
-    }
-    .btn-secondary:hover { border-color: #cbd5e1; transform: translateY(-1px); }
-
-    .hero {
-      padding: 76px 0 54px;
-      background:
-        radial-gradient(circle at top left, rgba(34,197,94,0.15), transparent 30%),
-        radial-gradient(circle at top right, rgba(15,118,110,0.12), transparent 28%),
-        linear-gradient(180deg, #f0fdfa 0%, #f8fafc 70%);
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 36px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: #dcfce7;
-      color: #166534;
-      font-size: 13px;
-      font-weight: 800;
-      letter-spacing: 0.02em;
-      text-transform: uppercase;
-      margin-bottom: 18px;
-    }
-
-    h1, h2, h3 { line-height: 1.15; margin: 0 0 14px; }
-    h1 { font-size: clamp(38px, 5vw, 62px); letter-spacing: -0.03em; }
-    h2 { font-size: clamp(28px, 3vw, 40px); letter-spacing: -0.02em; }
-    h3 { font-size: 22px; }
-
-    .hero p {
-      font-size: 18px;
-      color: var(--muted);
-      max-width: 700px;
-      margin: 0 0 24px;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-bottom: 26px;
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
-
-    .stat {
-      background: rgba(255,255,255,0.85);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 18px;
-      box-shadow: var(--shadow);
-    }
-
-    .stat strong {
-      display: block;
-      font-size: 24px;
-      margin-bottom: 4px;
-    }
-
-    .hero-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 28px;
-      padding: 28px;
-      box-shadow: var(--shadow);
-    }
-
-    .hero-card .mini {
-      display: grid;
-      grid-template-columns: 56px 1fr;
-      gap: 16px;
-      align-items: start;
-      margin-bottom: 18px;
-    }
-
-    .icon {
-      width: 56px;
-      height: 56px;
-      border-radius: 18px;
-      display: grid;
-      place-items: center;
-      background: #ecfeff;
-      color: var(--primary-dark);
-      font-size: 24px;
-      font-weight: 700;
-    }
-
-    section { padding: 78px 0; }
-
-    .section-head {
-      max-width: 760px;
-      margin-bottom: 28px;
-    }
-
-    .section-head p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 17px;
-    }
-
-    .grid-3, .grid-4 {
-      display: grid;
-      gap: 22px;
-    }
-
-    .grid-3 { grid-template-columns: repeat(3, 1fr); }
-    .grid-4 { grid-template-columns: repeat(4, 1fr); }
-
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 26px;
-      box-shadow: var(--shadow);
-    }
-
-    .card p, .list, .muted { color: var(--muted); }
-
-    .checklist {
-      list-style: none;
-      padding: 0;
-      margin: 18px 0 0;
-      display: grid;
-      gap: 12px;
-    }
-
-    .checklist li {
-      padding-left: 28px;
-      position: relative;
-    }
-
-    .checklist li::before {
-      content: "✓";
-      position: absolute;
-      left: 0;
-      top: 0;
-      color: #16a34a;
-      font-weight: 800;
-    }
-
-    .split {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      align-items: stretch;
-    }
-
-    .process {
-      counter-reset: step;
-      display: grid;
-      gap: 16px;
-    }
-
-    .step {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 20px 20px 20px 72px;
-      position: relative;
-      box-shadow: var(--shadow);
-    }
-
-    .step::before {
-      counter-increment: step;
-      content: counter(step);
-      position: absolute;
-      left: 18px;
-      top: 18px;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: var(--primary);
-      color: white;
-      display: grid;
-      place-items: center;
-      font-weight: 800;
-    }
-
-    .cta {
-      background: linear-gradient(135deg, #0f172a, #134e4a);
-      color: white;
-      border-radius: 30px;
-      padding: 42px;
-      box-shadow: var(--shadow);
-    }
-
-    .cta p { color: rgba(255,255,255,0.82); }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
-
-    .contact-card {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 22px;
-      padding: 24px;
-      box-shadow: var(--shadow);
-    }
-
-    .contact-list {
-      display: grid;
-      gap: 14px;
-      margin-top: 12px;
-    }
-
-    .contact-list div {
-      padding: 14px 16px;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      background: #f8fafc;
-    }
-
-    footer {
-      padding: 28px 0 40px;
-      color: #64748b;
-      font-size: 14px;
-    }
-
-    @media (max-width: 980px) {
-      .hero-grid, .grid-4, .grid-3, .split, .contact-grid {
-        grid-template-columns: 1fr;
-      }
-      .stats {
-        grid-template-columns: 1fr;
-      }
-      .nav {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .nav-links {
-        width: 100%;
-        justify-content: flex-start;
-      }
-    }
-
-    
-
-    @media (max-width: 640px) {
-      .hero { padding-top: 46px; }
-      section { padding: 56px 0; }
-      .cta { padding: 28px; }
-      .hero-card, .card, .contact-card { padding: 22px; }
-      .nav-links { gap: 12px; }
-    }
-  </style>
+@media(max-width:800px){
+.grid{
+grid-template-columns:1fr;
+}
+}
+</style>
 </head>
+
 <body>
-  <div class="topbar">
-    <div class="container">
-      <div>Serving businesses, schools, and organizations across Ontario</div>
-      <div><a href="mailto:info@greenitrecovery.com">info@greenitrecovery.com</a></div>
-    </div>
-  </div>
 
-  <header>
-    <div class="container nav">
-      <a href="#top" class="brand">
-        <span class="brand-mark">♻</span>
-        <span>Green IT Recovery Inc.</span>
-      </a>
-      <nav class="nav-links">
-        <a href="#services">Services</a>
-        <a href="#process">How It Works</a>
-        <a href="#equipment">Equipment</a>
-        <a href="#about">Why Us</a>
-        <a href="#contact" class="btn btn-primary">Request Pickup</a>
-      </nav>
-    </div>
-  </header>
+<header>
+<div class="container nav">
+<h2>Green IT Recovery Inc.</h2>
+<a href="#contact" class="btn">Request Free Pickup</a>
+</div>
+</header>
 
-  <main id="top">
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <span class="eyebrow">Ontario IT Asset Recovery</span>
-          <h1>Professional electronics pickup, value recovery, and responsible recycling.</h1>
-          <p>
-            Green IT Recovery Inc. helps offices, schools, and organizations clear out surplus IT equipment with a simple, secure, and environmentally responsible process. We collect reusable electronics, recover value where possible, and ensure obsolete items are handled properly.
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="mailto:info@greenitrecovery.com?subject=Pickup Request - Green IT Recovery">Request a Pickup</a>
-            <a class="btn btn-secondary" href="#services">Explore Services</a>
-          </div>
-          <div class="stats">
-            <div class="stat">
-              <strong>Business & School Pickup</strong>
-              <span class="muted">Convenient collection of surplus electronics and IT assets.</span>
-            </div>
-            <div class="stat">
-              <strong>Value Recovery</strong>
-              <span class="muted">We assess reusable equipment and pay for qualifying assets.</span>
-            </div>
-            <div class="stat">
-              <strong>Responsible Recycling</strong>
-              <span class="muted">Obsolete devices are processed through proper recycling channels.</span>
-            </div>
-          </div>
-        </div>
+<section class="hero">
+<div class="container">
+<h1>Professional Electronics Pickup & IT Asset Recovery</h1>
+<p>
+We provide free electronics pickup for businesses, schools, and organizations.
+We recover value from reusable equipment and responsibly recycle obsolete items.
+</p>
+</div>
+</section>
 
-        <div class="hero-card">
-          <div class="mini">
-            <div class="icon">🖥</div>
-            <div>
-              <h3>What we collect</h3>
-              <p class="muted">Desktops, laptops, servers, networking equipment, monitors, components, office electronics, and related IT hardware.</p>
-            </div>
-          </div>
-          <div class="mini">
-            <div class="icon">🔒</div>
-            <div>
-              <h3>Secure handling</h3>
-              <p class="muted">For organizations with storage devices, we offer data-focused handling and can discuss secure wipe or destruction requirements.</p>
-            </div>
-          </div>
-          <div class="mini">
-            <div class="icon">🚚</div>
-            <div>
-              <h3>Easy scheduling</h3>
-              <p class="muted">Email us your item list, location, and preferred timing, and we will coordinate the next steps.</p>
-            </div>
-          </div>
-          <a class="btn btn-primary" style="width:100%; margin-top: 8px;" href="mailto:info@greenitrecovery.com?subject=Equipment Pickup Inquiry">Email Us Today</a>
-        </div>
-      </div>
-    </section>
+<section class="section">
+<div class="container grid">
+<div class="card">
+<h3>What We Collect</h3>
+<ul>
+<li>Laptops & Desktops</li>
+<li>Servers & Networking Equipment</li>
+<li>Monitors</li>
+<li>Office Electronics</li>
+<li>IT Hardware</li>
+</ul>
+</div>
 
-    <section id="services">
-      <div class="container">
-        <div class="section-head">
-          <h2>Services built for organizations with surplus electronics</h2>
-          <p>We make it easier to clear space, recover value from reusable equipment, and move obsolete electronics into proper recycling streams.</p>
-        </div>
-        <div class="grid-4">
-          <article class="card">
-            <div class="icon">📦</div>
-            <h3>Electronics Pickup</h3>
-            <p>Pickup services for offices, schools, warehouses, and other organizations with retired or surplus IT equipment.</p>
-          </article>
-          <article class="card">
-            <div class="icon">💻</div>
-            <h3>IT Asset Recovery</h3>
-            <p>Assessment of reusable equipment for refurbishment, resale, or recovery of residual asset value.</p>
-          </article>
-          <article class="card">
-            <div class="icon">♻️</div>
-            <h3>Electronics Recycling</h3>
-            <p>Responsible processing of obsolete electronics and components that are no longer suitable for reuse.</p>
-          </article>
-          <article class="card">
-            <div class="icon">🧹</div>
-            <h3>Clear-Out Support</h3>
-            <p>Ideal for office moves, storage room cleanouts, school upgrades, equipment refreshes, and liquidation projects.</p>
-          </article>
-        </div>
-      </div>
-    </section>
+<div class="card">
+<h3>Why Choose Us</h3>
+<ul>
+<li>Free Pickup</li>
+<li>Professional Service</li>
+<li>Responsible Recycling</li>
+<li>Business & School Support</li>
+<li>Ontario Coverage</li>
+</ul>
+</div>
+</div>
+</section>
 
-    <section id="process">
-      <div class="container split">
-        <div>
-          <div class="section-head">
-            <h2>A simple pickup process</h2>
-            <p>Designed to keep things clear and efficient from first contact to final collection.</p>
-          </div>
-          <div class="process">
-            <div class="step">
-              <h3>Send your equipment list</h3>
-              <p class="muted">Email your item types, estimated quantities, and pickup location.</p>
-            </div>
-            <div class="step">
-              <h3>Receive a response</h3>
-              <p class="muted">We review the equipment and confirm whether it qualifies for pickup and value recovery.</p>
-            </div>
-            <div class="step">
-              <h3>Schedule collection</h3>
-              <p class="muted">We coordinate a convenient time for pickup based on your location and project size.</p>
-            </div>
-            <div class="step">
-              <h3>Sort, recover, and recycle</h3>
-              <p class="muted">Reusable items are evaluated for recovery, and obsolete materials are directed to proper recycling channels.</p>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <h3>Best fit for</h3>
-          <ul class="checklist">
-            <li>Office technology upgrades</li>
-            <li>School computer lab replacements</li>
-            <li>Storage room cleanouts</li>
-            <li>Business relocations and downsizing</li>
-            <li>Retired laptops, desktops, and servers</li>
-            <li>Networking and telecom equipment removal</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+<section class="section" id="contact">
+<div class="container">
+<h2>Request a Free Pickup</h2>
+<p>Submit your details and we will schedule your electronics collection.</p>
 
-    <section id="equipment">
-      <div class="container">
-        <div class="section-head">
-          <h2>Equipment we commonly accept</h2>
-          <p>If you are unsure about a particular item, send us a quick list by email and we will confirm.</p>
-        </div>
-        <div class="grid-3">
-          <div class="card">
-            <h3>Computers & Devices</h3>
-            <ul class="checklist">
-              <li>Laptops</li>
-              <li>Desktop computers</li>
-              <li>Workstations</li>
-              <li>Tablets</li>
-              <li>Docking stations</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3>Infrastructure Equipment</h3>
-            <ul class="checklist">
-              <li>Servers</li>
-              <li>Switches and routers</li>
-              <li>Firewalls</li>
-              <li>Racks and accessories</li>
-              <li>Telecom hardware</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3>Peripherals & Components</h3>
-            <ul class="checklist">
-              <li>Monitors</li>
-              <li>Printers and office electronics</li>
-              <li>Hard drives and SSDs</li>
-              <li>Memory and components</li>
-              <li>Cables and accessories</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
+<div class="grid">
+<div class="card">
 
-    <section id="about">
-      <div class="container split">
-        <div class="card">
-          <h2>Why organizations choose Green IT Recovery</h2>
-          <p class="muted">We focus on professionalism, clear communication, and practical solutions for organizations that need electronics removed efficiently. We also work with electronic recyclers to ensure obsolete items are processed through proper recycling channels.</p>
-          <ul class="checklist">
-            <li>Professional business presentation</li>
-            <li>Simple pickup coordination</li>
-            <li>Focus on reuse before recycling where appropriate</li>
-            <li>Support for schools, offices, and institutional cleanouts</li>
-            <li>Responsive communication through your business email domain</li>
-          </ul>
-        </div>
-        <div class="cta">
-          <h2>Need a pickup quote?</h2>
-          <p>
-            Email us with your company or school name, city, item list, and approximate quantity. We will review your request and get back to you with the next steps.
-          </p>
-          <div class="hero-actions" style="margin-top:20px; margin-bottom:0;">
-            <a class="btn btn-primary" href="mailto:info@greenitrecovery.com?subject=Pickup Quote Request">Get a Quote</a>
-            <a class="btn btn-secondary" href="mailto:info@greenitrecovery.com?subject=General Inquiry">General Inquiry</a>
-          </div>
-        </div>
-      </div>
-    </section>
+<form action="https://formsubmit.co/info@greenitrecovery.com" method="POST">
 
-    <section id="contact">
-      <div class="container">
-        <div class="section-head">
-          <h2>Contact Green IT Recovery Inc.</h2>
-          <p>Send us your pickup request using the form below. Messages can be delivered directly to <strong>info@greenitrecovery.com</strong> through the form action when published.</p>
-        </div>
-        <div class="contact-grid">
-          <div class="contact-card">
-            <h3>Request a pickup</h3>
-            <form action="https://formsubmit.co/info@greenitrecovery.com" method="POST" style="display:grid; gap:14px; margin-top:14px;">
-              <input type="hidden" name="_subject" value="New Pickup Request - Green IT Recovery" />
-              <input type="hidden" name="_captcha" value="false" />
-              <input type="hidden" name="_template" value="table" />
-              <input type="text" name="name" placeholder="Your name" required style="padding:14px 16px; border:1px solid var(--border); border-radius:14px; font:inherit;" />
-              <input type="text" name="company" placeholder="Company or school name" style="padding:14px 16px; border:1px solid var(--border); border-radius:14px; font:inherit;" />
-              <input type="email" name="email" placeholder="Your email" required style="padding:14px 16px; border:1px solid var(--border); border-radius:14px; font:inherit;" />
-              <input type="text" name="phone" placeholder="Phone number" style="padding:14px 16px; border:1px solid var(--border); border-radius:14px; font:inherit;" />
-              <input type="text" name="location" placeholder="Pickup city or address" style="padding:14px 16px; border:1px solid var(--border); border-radius:14px; font:inherit;" />
-              <textarea name="equipment" placeholder="Tell us what equipment you have and the approximate quantity" rows="5" required style="padding:14px 16px; border:1px solid var(--border); border-radius:14px; font:inherit; resize:vertical;"></textarea>
-              <button type="submit" class="btn btn-primary" style="border:none; cursor:pointer;">Send Request</button>
-            </form>
-          </div>
-          <div class="contact-card">
-            <h3>What to include</h3>
-            <ul class="checklist">
-              <li>Your organization name</li>
-              <li>Your contact email and phone number</li>
-              <li>Pickup address or city</li>
-              <li>List of electronics and estimated quantity</li>
-              <li>Preferred pickup timeframe</li>
-            </ul>
-            <div class="contact-list" style="margin-top:18px;">
-              <div><strong>Email</strong><br><a href="mailto:info@greenitrecovery.com">info@greenitrecovery.com</a></div>
-              <div><strong>Website</strong><br><a href="https://www.greenitrecovery.com">www.greenitrecovery.com</a></div>
-              <div><strong>Service Area</strong><br>Ontario, Canada</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+<input type="hidden" name="_subject" value="New Pickup Request - Green IT Recovery">
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_template" value="table">
 
-  <footer>
-    <div class="container">
-      © 2026 Green IT Recovery Inc. All rights reserved.
-    </div>
-  </footer>
+<input type="text" name="name" placeholder="Full Name" required>
+
+<input type="text" name="company" placeholder="Company / School Name">
+
+<input type="email" name="email" placeholder="Email Address" required>
+
+<input type="tel" name="phone" placeholder="Phone Number (e.g. +1 647 555 1234)" required>
+
+<input type="text" name="address" placeholder="Full Pickup Address" required>
+
+<input type="date" name="pickup_date">
+
+<textarea name="equipment" rows="5"
+placeholder="List equipment and estimated quantity (e.g. 25 laptops, 10 monitors)"
+required></textarea>
+
+<button type="submit">Request Free Pickup</button>
+
+</form>
+
+</div>
+
+<div class="card">
+<h3>What To Include</h3>
+<ul>
+<li>Your name and company</li>
+<li>Contact phone with country code</li>
+<li>Full pickup address</li>
+<li>Equipment list</li>
+<li>Preferred pickup date</li>
+</ul>
+
+<br>
+
+<h3>Contact</h3>
+<p>Email: info@greenitrecovery.com</p>
+<p>Service Area: Ontario, Canada</p>
+
+</div>
+</div>
+</div>
+</section>
+
+<footer>
+© 2026 Green IT Recovery Inc. All rights reserved.
+</footer>
+
 </body>
 </html>
