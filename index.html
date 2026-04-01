@@ -4,90 +4,127 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Green IT Recovery Inc. | Free Electronics Pickup</title>
+<meta name="description" content="Free electronics pickup, IT asset recovery, and responsible recycling across Ontario." />
 
 <style>
+:root {
+--primary:#0f766e;
+--primary-dark:#115e59;
+--text:#0f172a;
+--muted:#475569;
+--bg:#f8fafc;
+--card:#ffffff;
+--border:#e2e8f0;
+--shadow:0 18px 45px rgba(15,23,42,0.08);
+}
+
 body{
-font-family:Arial, Helvetica, sans-serif;
 margin:0;
-background:#f8fafc;
-color:#0f172a;
+font-family:Inter, Arial, Helvetica, sans-serif;
+background:var(--bg);
+color:var(--text);
 }
 
 .container{
-max-width:1100px;
-margin:auto;
-padding:20px;
+width:min(1100px, calc(100% - 32px));
+margin:0 auto;
 }
 
 header{
 background:white;
-border-bottom:1px solid #e2e8f0;
+border-bottom:1px solid var(--border);
+position:sticky;
+top:0;
 }
 
 .nav{
 display:flex;
 justify-content:space-between;
 align-items:center;
+padding:18px 0;
 }
 
 .btn{
-background:#0f766e;
+background:var(--primary);
 color:white;
-padding:12px 18px;
-border-radius:30px;
+padding:12px 20px;
+border-radius:999px;
+font-weight:600;
 text-decoration:none;
-font-weight:bold;
 }
 
 .hero{
-padding:60px 0;
-background:#ecfeff;
+padding:70px 0;
+background:linear-gradient(180deg,#f0fdfa,#f8fafc);
 }
 
-.card{
-background:white;
-padding:25px;
-border-radius:12px;
-border:1px solid #e2e8f0;
+.hero h1{
+font-size:44px;
+margin-bottom:15px;
 }
 
-.section{
-padding:60px 0;
+.hero p{
+color:var(--muted);
+font-size:18px;
+max-width:650px;
+}
+
+section{
+padding:70px 0;
 }
 
 .grid{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:25px;
+gap:24px;
+}
+
+.card{
+background:var(--card);
+border:1px solid var(--border);
+border-radius:18px;
+padding:24px;
+box-shadow:var(--shadow);
 }
 
 input, textarea{
 width:100%;
 padding:14px;
-border-radius:10px;
-border:1px solid #e2e8f0;
+border-radius:12px;
+border:1px solid var(--border);
 font-size:15px;
+font-family:inherit;
 }
 
 button{
-background:#0f766e;
+background:var(--primary);
 color:white;
 padding:14px;
 border:none;
-border-radius:30px;
-font-weight:bold;
+border-radius:999px;
+font-weight:600;
 cursor:pointer;
 }
 
+.cta{
+background:linear-gradient(135deg,#0f172a,#134e4a);
+color:white;
+border-radius:28px;
+padding:36px;
+}
+
 footer{
-text-align:center;
 padding:30px;
+text-align:center;
 color:#64748b;
 }
 
-@media(max-width:800px){
+@media(max-width:900px){
 .grid{
 grid-template-columns:1fr;
+}
+.hero h1{
+font-size:32px;
 }
 }
 </style>
@@ -106,44 +143,60 @@ grid-template-columns:1fr;
 <div class="container">
 <h1>Professional Electronics Pickup & IT Asset Recovery</h1>
 <p>
-We provide free electronics pickup for businesses, schools, and organizations.
-We recover value from reusable equipment and responsibly recycle obsolete items.
+Green IT Recovery Inc. provides free electronics pickup for businesses, schools,
+and organizations. We recover value from reusable equipment and responsibly
+recycle obsolete devices.
 </p>
 </div>
 </section>
 
-<section class="section">
+<section>
 <div class="container grid">
 <div class="card">
 <h3>What We Collect</h3>
 <ul>
-<li>Laptops & Desktops</li>
-<li>Servers & Networking Equipment</li>
-<li>Monitors</li>
-<li>Office Electronics</li>
-<li>IT Hardware</li>
+<li>Laptops & desktops</li>
+<li>Servers & networking equipment</li>
+<li>Monitors & peripherals</li>
+<li>Office electronics</li>
+<li>IT hardware & components</li>
 </ul>
 </div>
 
 <div class="card">
 <h3>Why Choose Us</h3>
 <ul>
-<li>Free Pickup</li>
-<li>Professional Service</li>
-<li>Responsible Recycling</li>
-<li>Business & School Support</li>
-<li>Ontario Coverage</li>
+<li>Free business pickup</li>
+<li>Professional service</li>
+<li>Responsible recycling</li>
+<li>Ontario coverage</li>
+<li>Value recovery</li>
 </ul>
 </div>
 </div>
 </section>
 
-<section class="section" id="contact">
+<section>
+<div class="container">
+<div class="cta">
+<h2>Schedule a Free Electronics Pickup</h2>
+<p>
+Tell us what equipment you have and your pickup location.
+We will arrange a convenient collection time.
+</p>
+<br>
+<a href="#contact" class="btn">Request Free Pickup</a>
+</div>
+</div>
+</section>
+
+<section id="contact">
 <div class="container">
 <h2>Request a Free Pickup</h2>
 <p>Submit your details and we will schedule your electronics collection.</p>
 
 <div class="grid">
+
 <div class="card">
 
 <form action="https://formsubmit.co/info@greenitrecovery.com" method="POST">
@@ -154,18 +207,18 @@ We recover value from reusable equipment and responsibly recycle obsolete items.
 
 <input type="text" name="name" placeholder="Full Name" required>
 
-<input type="text" name="company" placeholder="Company / School Name">
+<input type="text" name="company" placeholder="Company / Organization">
 
 <input type="email" name="email" placeholder="Email Address" required>
 
-<input type="tel" name="phone" placeholder="Phone Number (e.g. +1 647 555 1234)" required>
+<input type="tel" name="phone" placeholder="Phone (Include country code e.g. +1 647 555 1234)" required>
 
 <input type="text" name="address" placeholder="Full Pickup Address" required>
 
 <input type="date" name="pickup_date">
 
 <textarea name="equipment" rows="5"
-placeholder="List equipment and estimated quantity (e.g. 25 laptops, 10 monitors)"
+placeholder="List equipment and estimated quantity"
 required></textarea>
 
 <button type="submit">Request Free Pickup</button>
@@ -177,8 +230,8 @@ required></textarea>
 <div class="card">
 <h3>What To Include</h3>
 <ul>
-<li>Your name and company</li>
-<li>Contact phone with country code</li>
+<li>Company name</li>
+<li>Contact phone number</li>
 <li>Full pickup address</li>
 <li>Equipment list</li>
 <li>Preferred pickup date</li>
@@ -191,6 +244,7 @@ required></textarea>
 <p>Service Area: Ontario, Canada</p>
 
 </div>
+
 </div>
 </div>
 </section>
